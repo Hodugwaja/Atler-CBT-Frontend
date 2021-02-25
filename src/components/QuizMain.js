@@ -1,25 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
+import Particles from 'react-particles-js';
+import logo from '../black.jpg'
+import './Font.css'
+const axios = require('axios');
 
 const QuizStyle = styled.div`
+
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@1000&display=swap');
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  
-    font-family: "Verdana", cursive, sans-serif;
     color: #ffffff;
-  
-  
-  body {
-    background-color: #7cc6fe;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-  }
+    font-family: 'Noto Sans KR', sans-serif;
+    
+  
   
   .app {
     background-color: #252d4a;
@@ -95,7 +93,9 @@ const QuizStyle = styled.div`
   .incorrect {
     background-color: #ff3333;
   }
-  
+  .hyperlink{
+    clolor : #
+  }
   button:hover {
     background-color: #555e7d;
   }
@@ -107,7 +107,10 @@ const QuizStyle = styled.div`
   button svg {
     margin-right: 5px;
   }
-  
+  .backgorund{
+      width: '100%',
+      background-url: background-url(${logo}) 
+  }
 `
 
 const Quiz = () => {
@@ -149,6 +152,20 @@ const Quiz = () => {
 			],
 		},
 	];
+  useEffect(()=>{
+
+    var options = {
+        url: 'https://quizapi.io/api/v1/questions?apiKey=75cT4RYq0oTykWSrMRykYSjmhhxxDc8Ykqf00r1S&limit=10'
+    };
+
+    function callback(error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log(body);
+        }
+    }
+
+  })
+
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
@@ -163,30 +180,52 @@ const Quiz = () => {
 			setShowScore(true)
 		}
 	};
+
+
 	
 	return (
-		<QuizStyle className='app'>
-			{showScore ? (
-				<div className='score-section'>
-					최종점수 {score}/{questions.length}
-				</div>
-			) : (
-				<>
-					<div className='question-section'>
-						<div className='question-count'>
-							<span>{currentQuestion + 1}</span>/{questions.length}
-						</div>
-						<div className='question-text'>{questions[currentQuestion].questionText}</div>
-					</div>
-					<div className='answer-section'>
-						{questions[currentQuestion].answerOptions.map((answerOption, index) => (
-							<button onClick = {() => handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
-						))}
-					</div>
-				</>
-			)}
+    <Particles
+      params={{
+        particles: {
+          line_linked: {
+            shadow: {
+              enable: true,
+              color: "#3CA9D1",
+              blur: 5
+            }
+          }
+        }
+      }}
+      
+    >
+      <QuizStyle>
+        <div className='app'>
+          {showScore ? (
+            
+              <div className='score-section'>
+                  최종점수 {score}/{questions.length}
+              </div>
+              
+            
+          ) : (
+            <>
+              <div className='question-section'>
+                <div className='question-count'>
+                  <span>{currentQuestion + 1}</span>/{questions.length}
+                </div>
+                <div className='question-text'>{questions[currentQuestion].questionText}</div>
+              </div>
+              <div className='answer-section'>
+                {questions[currentQuestion].answerOptions.map((answerOption, index) => (
+                  <button onClick = {() => handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+                ))}
+              </div>
+            </>
+          )}
 
-		</QuizStyle>
+        </div>
+      </QuizStyle>
+    </Particles>
 	);
 }
 
