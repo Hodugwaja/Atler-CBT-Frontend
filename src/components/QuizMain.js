@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import Particles from 'react-particles-js';
 import logo from '../black.jpg'
-import './Font.css'
+import './font.css'
 const axios = require('axios');
 
 const QuizStyle = styled.div`
@@ -21,10 +21,9 @@ const QuizStyle = styled.div`
   
   .app {
     background-color: #252d4a;
-    width: 450px;
-    min-height: 200px;
-    height: min-content;
-    border-radius: 15px;
+    width: 1536px;
+    height: 664px;
+    border-radius: 15px;  
     padding: 20px;
     box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
     display: flex;
@@ -33,7 +32,7 @@ const QuizStyle = styled.div`
   
   .score-section {
     display: flex;
-    font-size: 24px;
+    font-size: 24px;      
     align-items: center;
   }
   
@@ -64,7 +63,6 @@ const QuizStyle = styled.div`
     text-align: center;
   }
   
-  /* ANSWERS/RIGHT SECTION */
   .answer-section {
     width: 100%;
     display: flex;
@@ -108,8 +106,9 @@ const QuizStyle = styled.div`
     margin-right: 5px;
   }
   .backgorund{
-      width: '100%',
-      background-url: background-url(${logo}) 
+      width: 100%;
+      height : 100%;
+      background: background-url(${logo});
   }
 `
 
@@ -159,11 +158,10 @@ const Quiz = () => {
     };
 
     function callback(error, response, body) {
-        if (!error && response.statusCode == 200) {
+        if (!error && response.statusCode === 200) {
             console.log(body);
         }
     }
-
   })
 
 	const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -184,50 +182,62 @@ const Quiz = () => {
 
 	
 	return (
-    <Particles
-      params={{
-        particles: {
-          line_linked: {
-            shadow: {
-              enable: true,
-              color: "#3CA9D1",
-              blur: 5
-            }
-          }
-        }
-      }}
-      
-    >
-      <QuizStyle>
-        <div className='app'>
-          {showScore ? (
-            
-              <div className='score-section'>
-                  최종점수 {score}/{questions.length}
-              </div>
-              
-            
-          ) : (
-            <>
-              <div className='question-section'>
-                <div className='question-count'>
-                  <span>{currentQuestion + 1}</span>/{questions.length}
-                </div>
-                <div className='question-text'>{questions[currentQuestion].questionText}</div>
-              </div>
-              <div className='answer-section'>
-                {questions[currentQuestion].answerOptions.map((answerOption, index) => (
-                  <button onClick = {() => handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
-                ))}
-              </div>
-            </>
-          )}
+    
+    <QuizStyle>
+    <div className='app'>
+      {showScore ? (
+        
+          <div className='score-section'>
+              최종점수 {score}/{questions.length}
+          </div>
+          
+        
+      ) : (
+        <>
+          <div className='question-section'>
+            <div className='question-count'>
+              <span>{currentQuestion + 1}</span>/{questions.length}
+            </div>
+            <div className='question-text'>{questions[currentQuestion].questionText}</div> 
+          </div>
+          <div className='answer-section'>
+            {questions[currentQuestion].answerOptions.map((answerOption, index) => (
+              <button onClick = {() => handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+            ))}
+          </div>
+        </>
+      )}
 
-        </div>
-      </QuizStyle>
-    </Particles>
+    </div> </QuizStyle>
+    
+     
+    
 	);
 }
 
 
 export default Quiz;
+
+/*
+<Particles className = "background"
+      params={{
+        "particles": {
+            "number": {
+                "value": 50
+            },
+            "size": {
+                "value": 3
+            }
+        },
+        "interactivity": {
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                }
+            }
+        }
+      }}
+    > 
+        </Particles>
+        */
