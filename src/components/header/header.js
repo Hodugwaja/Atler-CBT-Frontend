@@ -7,9 +7,8 @@ background-position: top;
 -o-background-size: cover;
 background-size: cover;
 */
-    const HeaderBlock = styled.div`
-        position: -webkit-sticky;
-        position: sticky;
+const HeaderBlock = styled.div`
+    position: sticky;
     width : 100%;
     height: 89px;
     background: white;
@@ -20,14 +19,15 @@ const Content = styled.div`
     font-family : Blanka;
     position: absolute;
     overflow: visible;
-    width: 1920px;
+    width: 100%;
     height: 89px;
     left: 0px;
     top: 0px;
     
     .logo{
-        top: 10px;
-        left: 64px;
+        left: 10%;
+        top: 12px;
+        
         width: 274px;
         height: 59px;
         text-align: left;
@@ -36,7 +36,7 @@ const Content = styled.div`
         opacity: 1;
     }
     .langauage{
-        left: 1364px;
+        left: 72.5%;
 		top: 13px;
 		position: absolute;
 		overflow: visible;
@@ -59,13 +59,13 @@ const Content = styled.div`
 		shape-rendering: auto; 
         position: absolute;
 		overflow: visible;
-		width: 51px;
-		height: 49px;
-		left: 1469px;
+		width: 50px;
+		height: 50px;
+		left: 76.5%;
 		top: 22px;
     }
     .signin{
-        left: 1546px;
+        left: 80.4%;
 		top: 28px;
 		position: absolute;
 		overflow: visible;
@@ -83,26 +83,25 @@ const Content = styled.div`
 		color: rgba(0,0,0,1);
     }
     .Signup-button{
+        top: 16px;
+        left: 86.5%;
+        width: 165px;
+        height: 60px;
         position: absolute;
-		width: 165px;
-		height: 60px;
-		left: 1660px;
-		top: 16px;
 		overflow: visible;
-		--web-animation: fadein 0.3s ease-out;
-		--web-action-type: page;
-		cursor: pointer;
-        fill: rgba(35,16,32,1);
+        background: #231020 0% 0% no-repeat padding-box;
+        border-radius: 30px;
+        opacity: 1;
         
     }
     .signup{
-        left: 38px;
-		top: 11px;
+        left : 20%;
+		top: 15%;
 		position: absolute;
 		overflow: visible;
 		width: 93px;
 		white-space: nowrap;
-		text-align: left;
+        text-align : center;
 		font-family: Blanka;
 		font-style: normal;
 		font-weight: normal;
@@ -121,16 +120,16 @@ const header = () => {
             <HeaderBlock>
                 <Content>
                     <div className = "logo">Atler-CBT</div>
-                    <div className = "language">
+                    <div className = "langauage">
                         <span>EN</span>
                     </div>
                     <svg className = "theme"><ellipse id="_2" rx="25.5" ry="24.5" cx="25.5" cy="24.5">
 					</ellipse></svg>
-                    <div className = "signin">Sign IN</div>
-                    <svg className = "Signup-button">
-                        <rect id="_5" rx="30" ry="30" x="0" y="0" width="165" height="60"></rect>
-                    </svg>    
-                    <div ClassName = "SignUP">sign up</div>
+                    <span className = "signin">Sign IN</span>
+                    <div className = "Signup-button">
+                        <div className = "signup">sign up</div>
+                    </div>    
+                    
                     
                 </Content>  
             </HeaderBlock>

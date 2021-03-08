@@ -1,10 +1,11 @@
 import React from 'react';
 import Header from '../components/header/header'
-import mainComponent from '../components/Main';
+import MainComponent from '../components/Main';
 const Main = () => {
     return(
         <>
             <Header/>
+            <MainComponent/>
         </>
     )
 }
