@@ -109,13 +109,29 @@ const Main = () => {
                     <svg className = "make">
                         <ellipse className = "make" rx  ="51.5" ry="51.5" x="0" y="0" width="343" height="103"></ellipse>
                         
-                    </svg>
+                    </svg>sdafsadf
                     <div className = "make-text">make a quiz</div>
                 </div>    
             </BackgroundImage>
             <RecommandQuiz>
                 <div className = "title"></div>
             </RecommandQuiz>  
+            <div id="_3_ca" class="___3">
+					<img id="_ca" src="_ca.png" srcset="_ca.png 1x, _ca@2x.png 2x">
+						
+					<img id="ID1200px-Unofficial_JavaScript_ca" src="ID1200px-Unofficial_JavaScript_ca.png" srcset="ID1200px-Unofficial_JavaScript_ca.png 1x, ID1200px-Unofficial_JavaScript_ca@2x.png 2x">
+						
+					<div id="JavaScript__ca">
+						<span>JavaScript 퀴즈</span>
+					</div>
+					<div id="ID1972__cb">
+						<span>1972명 도전</span>
+					</div>
+					<div id="__9870">
+						<span>평균 점수 98.70%</span>
+					</div>
+				</div>
+			</div>
         </>
     )
 }
