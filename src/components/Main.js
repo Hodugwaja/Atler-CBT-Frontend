@@ -89,10 +89,45 @@ const BackgroundImage = styled.div`
 		font-size: 30px;
 		color: rgba(255,255,255,1);
     }
-`;
-
+`
 const RecommandQuiz = styled.div`
-
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    left: 0px;
+    top: 1088px;
+    overflow: visible;
+    .title{
+        left: 48px;
+		top: 78px;
+		position: absolute;
+		overflow: visible;
+		width: 534px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Blanka;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 80px;
+		color: rgba(0,0,0,1);
+    }
+    .title-content{
+        font-size : 40px;
+    }
+    .search{
+        left: 1490px;
+		top: 900px;
+		position: absolute;
+		overflow: visible;
+		width: 298px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Blanka;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 51px;
+		color: rgba(0,0,0,1);
+    }
 `;
 const Main = () => {
     return(
@@ -114,24 +149,15 @@ const Main = () => {
                 </div>    
             </BackgroundImage>
             <RecommandQuiz>
-                <div className = "title"></div>
+                <div className = "title">
+                    <div>try a quiz</div>
+                    <div className = "title-content">here are the recommends </div>
+                </div>
+                <div className = "search">
+                    <span>More quiz</span>
+                </div>
             </RecommandQuiz>  
-            <div id="_3_ca" class="___3">
-					<img id="_ca" src="_ca.png" srcset="_ca.png 1x, _ca@2x.png 2x">
-						
-					<img id="ID1200px-Unofficial_JavaScript_ca" src="ID1200px-Unofficial_JavaScript_ca.png" srcset="ID1200px-Unofficial_JavaScript_ca.png 1x, ID1200px-Unofficial_JavaScript_ca@2x.png 2x">
-						
-					<div id="JavaScript__ca">
-						<span>JavaScript 퀴즈</span>
-					</div>
-					<div id="ID1972__cb">
-						<span>1972명 도전</span>
-					</div>
-					<div id="__9870">
-						<span>평균 점수 98.70%</span>
-					</div>
-				</div>
-			</div>
+            
         </>
     )
 }
