@@ -4,7 +4,7 @@ import MainComponent from '../components/Main';
 const Main = () => {
     return(
         <>
-            <Header/>
+            <Header type = "unlogin"/>
             <MainComponent/>
         </>
     )

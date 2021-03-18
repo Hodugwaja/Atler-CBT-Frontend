@@ -113,25 +113,87 @@ const Content = styled.div`
     
 `
 
+const UserContent = styled.div`
+    font-family : Blanka;
+    position: absolute;
+    overflow: visible;
+    width: 100%;
+    height: 89px;
+    left: 0px;
+    top: 0px;
 
-const header = () => {
+    .logo{
+        left: 10%;
+        top: 12px;
+        
+        width: 274px;
+        height: 59px;
+        text-align: left;
+        font: normal normal normal 49px/59px Blanka;
+        color: #000000;
+        opacity: 1;
+    }
+    .langauage{
+        left: 90%;
+        top: 13px;
+        position: absolute;
+        overflow: visible;
+        width: 53px;
+        white-space: nowrap;
+        text-align: left;
+        font-family: Blanka;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 43px;
+        color: rgba(0,0,0,1);
+    }
+    .theme{
+        fill: rgba(0,0,0,1);
+        stroke: rgba(112,112,112,1);
+        stroke-width: 1px;
+        stroke-linejoin: miter;
+        stroke-linecap: butt;
+        stroke-miterlimit: 4;
+        shape-rendering: auto; 
+        position: absolute;
+        overflow: visible;
+        width: 50px;
+        height: 50px;
+        left: 95%;
+        top: 22px;
+    }
+`;
+
+const header = ({type}) => {
     return(
         <>
             <HeaderBlock>
-                <Content>
-                    <div className = "logo">Atler-CBT</div>
+                
+                    {type === "unlogin"&& (<Content>
+                        <div className = "logo">Atler-CBT</div>
+                        <div className = "langauage">
+                            <span>EN</span>
+                        </div>
+                        <svg className = "theme"><ellipse id="_2" rx="25.5" ry="24.5" cx="25.5" cy="24.5">
+                        </ellipse></svg>
+                        <span className = "signin">Sign IN</span>
+                        <div className = "Signup-button">
+                            <div className = "signup">sign up</div>
+                        </div>    
+                        
+                        </Content>  
+                    )}
+                    {type === "user" && (<UserContent>
+                        <div className = "logo">Atler-CBT</div>
                     <div className = "langauage">
                         <span>EN</span>
                     </div>
                     <svg className = "theme"><ellipse id="_2" rx="25.5" ry="24.5" cx="25.5" cy="24.5">
 					</ellipse></svg>
-                    <span className = "signin">Sign IN</span>
-                    <div className = "Signup-button">
-                        <div className = "signup">sign up</div>
-                    </div>    
+                    </UserContent>)}
                     
                     
-                </Content>  
+                
             </HeaderBlock>
         </>
     )

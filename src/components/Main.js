@@ -129,6 +129,75 @@ const RecommandQuiz = styled.div`
 		color: rgba(0,0,0,1);
     }
 `;
+
+const quizTag = styled.div`
+    position: absolute;
+    width: 273px;
+    height: 572px;
+    top: 0px;
+    overflow: visible;
+    margin-left: 10%;
+
+    .background-img{
+        position: absolute;
+		width: 273px;
+		height: 572px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+    }
+
+    .quiz-profile{
+        position: absolute;
+		width: 206px;
+		height: 206px;
+		left: 34px;
+		top: 60px;
+		overflow: visible;
+    }
+
+    .quiz-title{
+        left: 29px;
+		top: 333px;
+		overflow: visible;
+		width: 217px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: godo;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 29px;
+		color: rgba(255,255,255,1);
+    }
+    .challenger{
+        left: 55px;
+		top: 410px;
+		overflow: visible;
+		width: 165px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Godo;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 29px;
+		color: rgba(255,255,255,1);
+		text-transform: uppercase;
+    }
+    .avgscore{
+        left: 22px;
+		top: 487px;
+		overflow: visible;
+		width: 237px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Godo;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 29px;
+		color: rgba(255,255,255,1);
+		text-transform: uppercase;
+    }
+`;
 const Main = () => {
     return(
         <>
