@@ -4,7 +4,7 @@ import Page from '../components/userBackground';
 const Login = () => {
     return(
         <>
-            <Header type = "user"></Header>
+            <Header type = "user-unlogin"></Header>
             <Page type = "login"></Page>
             
         </>

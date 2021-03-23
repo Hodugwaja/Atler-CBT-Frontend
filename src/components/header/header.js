@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
 /*
 background-position: top;
 -webkit-background-size: cover;
@@ -15,7 +16,7 @@ const HeaderBlock = styled.div`
 `;
 
 const Content = styled.div`
-   
+   text-decoration : none
     font-family : Blanka;
     position: absolute;
     overflow: visible;
@@ -37,7 +38,7 @@ const Content = styled.div`
     }
     .langauage{
         left: 72.5%;
-		top: 13px;
+		top: 10px;
 		position: absolute;
 		overflow: visible;
 		width: 53px;
@@ -107,7 +108,6 @@ const Content = styled.div`
 		font-weight: normal;
 		font-size: 25px;
 		color: rgba(255,255,255,1);
-        
     }   
     
     
@@ -118,24 +118,25 @@ const UserContent = styled.div`
     position: absolute;
     overflow: visible;
     width: 100%;
-    height: 89px;
+    height: 1vw;
     left: 0px;
     top: 0px;
+    textDecoration : none;
 
     .logo{
         left: 10%;
         top: 12px;
-        
         width: 274px;
         height: 59px;
         text-align: left;
         font: normal normal normal 49px/59px Blanka;
         color: #000000;
         opacity: 1;
+        text-decoration: none;
     }
     .langauage{
         left: 90%;
-        top: 13px;
+        top: 5px;
         position: absolute;
         overflow: visible;
         width: 53px;
@@ -160,7 +161,7 @@ const UserContent = styled.div`
         width: 50px;
         height: 50px;
         left: 95%;
-        top: 22px;
+        top: 17.5px;
     }
 `;
 
@@ -168,9 +169,10 @@ const header = ({type}) => {
     return(
         <>
             <HeaderBlock>
-                
                     {type === "unlogin"&& (<Content>
-                        <div className = "logo">Atler-CBT</div>
+                        <Link to = "/" className = "logo" style ={{textDecoration : 'none'}}>
+                            <div>Atler-CBT</div>
+                        </Link>
                         <div className = "langauage">
                             <span>EN</span>
                         </div>
@@ -183,13 +185,15 @@ const header = ({type}) => {
                         
                         </Content>  
                     )}
-                    {type === "user" && (<UserContent>
-                        <div className = "logo">Atler-CBT</div>
-                    <div className = "langauage">
-                        <span>EN</span>
-                    </div>
-                    <svg className = "theme"><ellipse id="_2" rx="25.5" ry="24.5" cx="25.5" cy="24.5">
-					</ellipse></svg>
+                    {type === "user-unlogin" && (<UserContent>
+                        <Link to = "/" style ={{textDecoration : 'none'}}>
+                            <div className = "logo">Atler-CBT</div>
+                        </Link>
+                        <div className = "langauage">
+                            <span>EN</span>
+                        </div>
+                        <svg className = "theme"><ellipse id="_2" rx="25.5" ry="24.5" cx="25.5" cy="24.5">
+                        </ellipse></svg>
                     </UserContent>)}
                     
                     
